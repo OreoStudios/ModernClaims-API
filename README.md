@@ -1,8 +1,16 @@
 # ModernClaims-API
 
-Repository: https://github.com/el211/ModernClaims-API
+Repository: https://github.com/OreoStudios/ModernClaims-API
 
-[![JitPack](https://jitpack.io/v/el211/ModernClaims-API.svg)](https://jitpack.io/#el211/ModernClaims-API)
+## Version 2 compatibility
+
+Version 2 replaces the `ClaimDefinition` chunk count with a set of `ClaimChunk`
+values, adds `Claim.chunks()` and `ClaimRepository.findByChunk(...)`, and derives
+the claim's chunk count from that set. This changes the `ClaimDefinition`
+constructor and requires implementations of `Claim` to provide `chunks()`.
+Addons using version 1 must update and recompile against version 2.
+
+[![JitPack](https://jitpack.io/v/OreoStudios/ModernClaims-API.svg)](https://jitpack.io/#OreoStudios/ModernClaims-API)
 
 ## Purpose
 
@@ -26,8 +34,8 @@ It is not intended for the plugin implementation itself.
 
 Artifacts:
 
-- `build/libs/ModernClaims-API-1.0-SNAPSHOT.jar`
-- `build/libs/ModernClaims-API-1.0-SNAPSHOT-sources.jar`
+- `build/libs/ModernClaims-API-2.0.0.jar`
+- `build/libs/ModernClaims-API-2.0.0-sources.jar`
 
 ## JitPack
 
@@ -48,13 +56,13 @@ repositories {
     maven {
         url = uri("https://jitpack.io")
         content {
-            includeGroup("com.github.el211")
+            includeGroup("com.github.OreoStudios")
         }
     }
 }
 
 dependencies {
-    implementation("com.github.el211:ModernClaims-API:v1.0.0")
+    implementation("com.github.OreoStudios:ModernClaims-API:v2.0.0")
 }
 ```
 
@@ -65,13 +73,13 @@ repositories {
     mavenCentral()
     maven("https://jitpack.io") {
         content {
-            includeGroup("com.github.el211")
+            includeGroup("com.github.OreoStudios")
         }
     }
 }
 
 dependencies {
-    implementation("com.github.el211:ModernClaims-API:v1.0.0")
+    implementation("com.github.OreoStudios:ModernClaims-API:v2.0.0")
 }
 ```
 
@@ -86,21 +94,21 @@ Maven:
 </repositories>
 
 <dependency>
-    <groupId>com.github.el211</groupId>
+    <groupId>com.github.OreoStudios</groupId>
     <artifactId>ModernClaims-API</artifactId>
-    <version>v1.0.0</version>
+    <version>v2.0.0</version>
 </dependency>
 ```
 
 Current stable tag:
 
-- `v1.0.0`
+- `v2.0.0`
 
 You can also use a commit hash if you want to consume a specific commit immediately.
 
 Once a tag is pushed, JitPack will build it on first request. You can inspect builds at:
 
-- `https://jitpack.io/#el211/ModernClaims-API`
+- `https://jitpack.io/#OreoStudios/ModernClaims-API`
 
 ## Usage
 

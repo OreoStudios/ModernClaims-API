@@ -17,6 +17,8 @@ public interface ClaimRepository {
 
     Collection<Claim> findByOwner(UUID ownerId);
 
+    Optional<Claim> findByChunk(String world, int chunkX, int chunkZ);
+
     Claim create(ClaimDefinition definition);
 
     Claim update(UUID id, ClaimDefinition definition);

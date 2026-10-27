@@ -1,6 +1,7 @@
 package fr.oreo.modernClaims.api.domain.model;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 public interface Claim {
@@ -13,7 +14,11 @@ public interface Claim {
 
     String world();
 
-    int chunkCount();
+    Set<ClaimChunk> chunks();
+
+    default int chunkCount() {
+        return chunks().size();
+    }
 
     String status();
 
