@@ -10,6 +10,16 @@ the claim's chunk count from that set. This changes the `ClaimDefinition`
 constructor and requires implementations of `Claim` to provide `chunks()`.
 Addons using version 1 must update and recompile against version 2.
 
+## Folia and concurrent calls
+
+API calls can originate from multiple Folia region threads, and plugins may also
+call APIs from asynchronous workers. Implementations must protect shared mutable
+state; `@ModuleApi` and API interfaces do not guarantee thread safety. Callers
+should follow each operation's documented threading requirements. Bukkit entity
+and world access must still run on the scheduler that owns the entity or region.
+Do not assume every call runs on Paper's main thread, and do not block a region
+thread with long-running work.
+
 [![JitPack](https://jitpack.io/v/OreoStudios/ModernClaims-API.svg)](https://jitpack.io/#OreoStudios/ModernClaims-API)
 
 ## Purpose
